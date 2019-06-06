@@ -3,6 +3,7 @@
 
 #include <queue>
 #include <vector>
+#include <string>
 #include <pthread.h>
 using namespace std;
 
@@ -28,10 +29,10 @@ private:
     void initMutex();
     void initThreadPool(unsigned int count);
     unsigned int chooseLeisureThread();
-    void *threadFunction(void *arg);
+    static void *threadFunction(void *arg);
+    inline void excuteAndTest(int s,string str);
 
 public:
-    ThreadPool();
     ~ThreadPool();
 
     ThreadPool(const ThreadPool&)=delete;
