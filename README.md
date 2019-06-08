@@ -31,4 +31,11 @@ int main(){
 }
 ```
 
+## 编译运行
+```shell
+cd ThreadPool
+g++ Test.cpp ThreadPool.cpp -o test -lpthread
+./test
+```
+
 

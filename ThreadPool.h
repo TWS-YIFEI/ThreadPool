@@ -21,11 +21,6 @@ typedef struct{
     pthread_cond_t cond;
  }Thread;
 
-typedef struct{
-    ThreadPool *tp;
-    int index;
-}PthreadCreateArgs;
-
 class ThreadPool{
 private:
     static queue<Task> task_queue;
@@ -36,7 +31,6 @@ private:
     static bool shutdown;
 
 private:
-    void initMutex();
     void initThreadPool(unsigned int count);
     int chooseLeisureThread();
     static void *threadFunction(void *arg);

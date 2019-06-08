@@ -8,7 +8,7 @@ void * mytask(void *arg){
 }
 
 int main(){
-    ThreadPool threadpool(20,100005);
+    ThreadPool threadpool(5,100005);
     Task tmp;
     int vi[100005];
 
