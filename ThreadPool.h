@@ -28,20 +28,20 @@ typedef struct{
 
 class ThreadPool{
 private:
-    queue<Task> task_queue;
-    pthread_mutex_t task_queue_mutex;
+    static queue<Task> task_queue;
+    static pthread_mutex_t task_queue_mutex;
     int maxqueuetaskcount;
-    //pthread_cond_t cond_to_thread;
-    vector<Thread> thread_pool;
-    pthread_mutex_t thread_pool_mutex;
+    static vector<Thread> thread_pool;
+    static pthread_mutex_t thread_pool_mutex;
+    static bool shutdown;
 
 private:
     void initMutex();
-    void *initThreadPool(unsigned int count);
+    void initThreadPool(unsigned int count);
     int chooseLeisureThread();
     static void *threadFunction(void *arg);
     static void cleanupFunction(void *arg);
-    void excuteAndTest(int s,string str);
+    static void excuteAndTest(int s,string str);
 
 public:
     ThreadPool(const ThreadPool&)=delete;
